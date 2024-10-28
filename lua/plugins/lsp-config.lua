@@ -4,7 +4,6 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-
     { 'williamboman/mason.nvim', config = true },
     { 'j-hui/fidget.nvim', config = true },
   },
@@ -72,8 +71,6 @@ return {
             completion = {
               callSnippet = 'Replace',
             },
-            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
           },
         },
       },
@@ -85,6 +82,7 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
     })
+
     require('mason-tool-installer').setup({
       ensure_installed = ensure_installed,
     })

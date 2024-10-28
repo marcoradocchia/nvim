@@ -1,4 +1,4 @@
-return { -- Fuzzy finder (files, lsp, etc.)
+return { -- Fuzzy finder (files, lsp, etc.)j
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
   dependencies = {
@@ -18,6 +18,18 @@ return { -- Fuzzy finder (files, lsp, etc.)
   },
   config = function()
     require('telescope').setup({
+      defaults = {
+        scroll_strategy = 'limit',
+        prompt_prefix = '❯ ',
+        selection_caret = ' ',
+        path_display = { 'truncate' },
+        mappings = {
+          i = {
+            ['<C-j>'] = require('telescope.actions').cycle_history_next,
+            ['<C-k>'] = require('telescope.actions').cycle_history_prev,
+          },
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
@@ -40,6 +52,7 @@ return { -- Fuzzy finder (files, lsp, etc.)
     vim.keymap.set('n', '<LEADER>sr', builtin.resume, { desc = 'Search resume' })
     vim.keymap.set('n', '<LEADER>ss', builtin.builtin, { desc = 'Search Telescope builtin' })
     vim.keymap.set('n', '<LEADER>s.', builtin.oldfiles, { desc = 'Search recent files' })
+    vim.keymap.set('n', '<LEADER>sk', builtin.keymaps, { desc = 'Search keymaps' })
 
     vim.keymap.set('n', '<LEADER>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown())

@@ -22,7 +22,6 @@ return { -- Autocompletion
     },
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'onsails/lspkind.nvim',
@@ -35,9 +34,6 @@ return { -- Autocompletion
     luasnip.config.setup({})
 
     cmp.setup({
-      performance = {
-        max_view_entries = 7,
-      },
       formatting = {
         expandable_indicator = true,
         fields = { 'abbr', 'kind', 'menu' },
@@ -45,7 +41,6 @@ return { -- Autocompletion
           mode = 'symbol_text',
           maxwidth = 50,
           menu = {
-            buffer = '[Buffer]',
             nvim_lsp = '[LSP]',
             luasnip = '[LuaSnip]',
             nvim_lua = '[Lua]',
@@ -114,20 +109,20 @@ return { -- Autocompletion
         { name = 'path' },
       },
     })
-    -- Setup commandline completion
-    cmp.setup.cmdline('/', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'cmdline' },
-        { name = 'buffer' },
-      },
-    })
-    cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'path' },
-        { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' } } },
-      },
-    })
+    -- -- Setup commandline completion
+    -- cmp.setup.cmdline('/', {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = {
+    --     { name = 'cmdline' },
+    --     { name = 'buffer' },
+    --   },
+    -- })
+    -- cmp.setup.cmdline(':', {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = {
+    --     { name = 'path' },
+    --     { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' } } },
+    --   },
+    -- })
   end,
 }

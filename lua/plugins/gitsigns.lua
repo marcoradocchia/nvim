@@ -28,29 +28,29 @@ return {
       end)
 
       -- Actions
-      map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'Git stage hunk' })
-      map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'Git reset hunk' })
-      map('v', '<leader>hs', function()
+      map('n', '<leader>ghs', gitsigns.stage_hunk, { desc = 'Git stage hunk' })
+      map('n', '<leader>ghu', gitsigns.undo_stage_hunk, { desc = 'Git undo stage hunk' })
+      map('n', '<leader>ghr', gitsigns.reset_hunk, { desc = 'Git reset hunk' })
+      map('v', '<leader>ghs', function()
         gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
       end, { desc = 'Git stage hunk selection' })
-      map('v', '<leader>hr', function()
+      map('v', '<leader>ghr', function()
         gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
       end, { desc = 'Git stage reset selection' })
-      map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'Git stage buffer' })
-      map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'Git undo stage hunk' })
-      map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'Git reset buffer' })
-      map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'Git preview hunk' })
-      map('n', '<leader>hb', function()
+      map('n', '<leader>gs', gitsigns.stage_buffer, { desc = 'Git stage buffer' })
+      map('n', '<leader>gr', gitsigns.reset_buffer, { desc = 'Git reset buffer' })
+      map('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'Git preview hunk' })
+      map('n', '<leader>gb', function()
         gitsigns.blame_line({ full = true })
       end, { desc = 'Git blame line' })
-      map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Git diff against index' })
-      map('n', '<leader>hD', function()
+      map('n', '<leader>gd', gitsigns.diffthis, { desc = 'Git diff against index' })
+      map('n', '<leader>gD', function()
         gitsigns.diffthis('~')
       end, { desc = 'Git diff against last commit' })
 
       -- Toggle actions
-      map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Git toggle current line blame' })
-      map('n', '<leader>td', gitsigns.toggle_deleted, { desc = 'Git toggle deleted' })
+      map('n', '<leader>gtb', gitsigns.toggle_current_line_blame, { desc = 'Git toggle current line blame' })
+      map('n', '<leader>gtd', gitsigns.toggle_deleted, { desc = 'Git toggle deleted' })
     end,
   },
 }
