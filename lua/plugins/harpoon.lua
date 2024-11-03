@@ -7,12 +7,9 @@ return { -- ThePrimeagen's harpoon
   },
   config = function()
     local harpoon = require('harpoon')
-
-    -- REQUIRED
     harpoon:setup({})
-    -- REQUIRED
 
-    -- basic telescope configuration
+    -- Basic telescope configuration
     local conf = require('telescope.config').values
     local function toggle_telescope(harpoon_files)
       local file_paths = {}
